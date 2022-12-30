@@ -6,22 +6,22 @@ class Game {
     }
 
   addRoll(pins) {
-    if(this.#currentFrame.rolls.length == 2 || this.#currentFrame.isStrike()) {
+    if(this.#currentFrame.isComplete()) {
       this.frames.push(new Frame());
     }
     this.#currentFrame.addRoll(pins);
   }
 
-  score (){
+  score(){
     let score = 0
     for(let i = 0; i < this.frames.length; i++) {
         const frame = this.frames[i]
-        score += frame.score()
+        const nextFrame = this.frames[i + 1];    
+        score += frame.score(nextFrame?.rolls[0], nextFrame?.rolls[1]);
+        }
+        return score;
+        
     }
-    return score
-  }
-
-
 
   get #currentFrame(){
    return this.frames[this.frames.length - 1];

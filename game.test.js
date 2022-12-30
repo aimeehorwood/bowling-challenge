@@ -43,5 +43,36 @@ describe("Game", () => {
       game.addRoll(4);
       expect(game.score()).toEqual(12);
     });
+
+    it("can score a game with a spare", () => {
+      const game = new Game();
+      game.addRoll(4);
+      game.addRoll(6);
+      game.addRoll(4);
+      expect(game.score()).toEqual(18);
+    });
+
+    it("can score a game with a strike", () => {
+        const game = new Game();
+        game.addRoll(10);
+        game.addRoll(3);
+        game.addRoll(3);
+        expect(game.score()).toEqual(22);
+      });
+  });
+
+  it("can score a gutter game", () => {
+    const game = new Game();
+    for (let i = 0; i < 20; i++) {
+      game.addRoll(0);
+    }
+    expect(game.score()).toEqual(0);
+  });
+  it("can score a game with all 1's", () => {
+    const game = new Game();
+    for (let i = 0; i < 20; i++) {
+      game.addRoll(1);
+    }
+    expect(game.score()).toEqual(20);
   });
 });

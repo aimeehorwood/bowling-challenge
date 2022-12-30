@@ -22,6 +22,20 @@ describe("Frame", () => {
       frame.addRoll(4);
       expect(frame.score()).toEqual(9);
     });
+
+    it("can score a spare", () =>{
+      const frame = new Frame();
+      frame.addRoll(6);
+      frame.addRoll(4);
+      expect(frame.score(3)).toEqual(13);
+    });
+    
+    it("can score a strike", ()=> {
+      const frame = new Frame();
+      frame.addRoll(10)
+      expect(frame.score(3,2)).toEqual(15)
+    })
+
   });
 
   describe("isStrike", () => {
@@ -58,5 +72,26 @@ describe("Frame", () => {
       frame.addRoll(10);
       expect(frame.isSpare()).toEqual(false);
     });
+  });
+
+  describe("isComplete", () => {
+    it("returns true if two rolls have been scored", () => {
+      const frame = new Frame();
+      frame.addRoll(4);
+      frame.addRoll(4);
+      expect(frame.isComplete()).toEqual(true);
+    });
+
+    it("returns true if strike has been scored", () => {
+      const frame = new Frame();
+      frame.addRoll(10);
+      expect(frame.isComplete()).toEqual(true);
+    });
+
+    it("returns false if the frame is incomplete", () => {
+      const frame = new Frame();
+      frame.addRoll(1);
+      expect(frame.isComplete()).toEqual(false);
+    })
   });
 });

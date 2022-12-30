@@ -12,11 +12,20 @@ class Game {
     this.#currentFrame.addRoll(pins);
   }
 
-  get #currentFrame(){
-   return this.frames[this.frames.length - 1];
+  score (){
+    let score = 0
+    for(let i = 0; i < this.frames.length; i++) {
+        const frame = this.frames[i]
+        score += frame.score()
+    }
+    return score
   }
 
 
+
+  get #currentFrame(){
+   return this.frames[this.frames.length - 1];
+  }
 
 }
 

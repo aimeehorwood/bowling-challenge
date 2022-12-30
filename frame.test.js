@@ -45,7 +45,7 @@ describe("Frame", () => {
       frame.addRoll(4);
       expect(frame.isSpare()).toEqual(false);
     });
-    
+
     it("returns true if spare", () => {
       const frame = new Frame();
       frame.addRoll(5);
@@ -54,11 +54,9 @@ describe("Frame", () => {
     });
 
     it("returns false when a strike has been scored", () => {
-            const frame = new Frame();
-            frame.addRoll(10);
-            expect(frame.isSpare()).toEqual(false);
-          
-
-        });
-    })
+      const frame = new Frame();
+      frame.addRoll(10);
+      expect(frame.isSpare()).toEqual(false);
+    });
+  });
 });

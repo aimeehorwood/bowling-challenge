@@ -1,4 +1,4 @@
-const {sum} = require ('lodash');
+const { sum } = require("lodash");
 
 class Frame {
   constructor() {
@@ -10,13 +10,13 @@ class Frame {
   }
 
   score(nextRoll = 0, subsequentRoll = 0) {
-    if(this.isSpare()){
+    if (this.isSpare()) {
       return sum(this.rolls) + nextRoll;
     }
-    if(this.isStrike()){
+    if (this.isStrike()) {
       return sum(this.rolls) + nextRoll + subsequentRoll;
     }
-   return sum(this.rolls);
+    return sum(this.rolls);
   }
 
   isStrike() {
@@ -24,12 +24,12 @@ class Frame {
   }
 
   isSpare() {
-    if(this.isStrike()) return false;
+    if (this.isStrike()) return false;
     return this.rolls[0] + this.rolls[1] === 10;
   }
 
   isComplete() {
-    return this.rolls.length === 2 || this.isStrike() ;
+    return this.rolls.length === 2 || this.isStrike();
   }
 }
 

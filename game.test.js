@@ -53,12 +53,12 @@ describe("Game", () => {
     });
 
     it("can score a game with a strike", () => {
-        const game = new Game();
-        game.addRoll(10);
-        game.addRoll(3);
-        game.addRoll(3);
-        expect(game.score()).toEqual(22);
-      });
+      const game = new Game();
+      game.addRoll(10);
+      game.addRoll(3);
+      game.addRoll(3);
+      expect(game.score()).toEqual(22);
+    });
   });
 
   it("can score a gutter game", () => {

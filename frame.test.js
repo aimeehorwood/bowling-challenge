@@ -23,19 +23,18 @@ describe("Frame", () => {
       expect(frame.score()).toEqual(9);
     });
 
-    it("can score a spare", () =>{
+    it("can score a spare", () => {
       const frame = new Frame();
       frame.addRoll(6);
       frame.addRoll(4);
       expect(frame.score(3)).toEqual(13);
     });
-    
-    it("can score a strike", ()=> {
-      const frame = new Frame();
-      frame.addRoll(10)
-      expect(frame.score(3,2)).toEqual(15)
-    })
 
+    it("can score a strike", () => {
+      const frame = new Frame();
+      frame.addRoll(10);
+      expect(frame.score(3, 2)).toEqual(15);
+    });
   });
 
   describe("isStrike", () => {
@@ -92,6 +91,6 @@ describe("Frame", () => {
       const frame = new Frame();
       frame.addRoll(1);
       expect(frame.isComplete()).toEqual(false);
-    })
+    });
   });
 });
